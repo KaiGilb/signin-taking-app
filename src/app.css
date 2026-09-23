@@ -1,0 +1,73 @@
+/* This app's own look. The taken card is branded through its --signin-* variables;
+   the card's own stylesheet is not edited. */
+:root {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #161514;
+  background: #f3f1ec;
+  --signin-brand: #5b3fa0;
+  --signin-on-brand: #ffffff;
+}
+
+body {
+  margin: 0;
+}
+
+/* The taken card's stylesheet assumes its host resets box-sizing (GilbApp and MyNetBase get
+   that from Tailwind's preflight). This host has no reset, so without this rule the email
+   field is 26px wider than the card's content box. Scoped to the card; the copy is not edited. */
+.gilb-signin-card,
+.gilb-signin-card *,
+.gilb-signin-card *::before,
+.gilb-signin-card *::after {
+  box-sizing: border-box;
+}
+
+.take-shell {
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 24px 16px;
+}
+
+@media (min-width: 640px) {
+  .take-shell {
+    align-items: center;
+  }
+}
+
+.take-banner {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  border-left: 3px solid var(--signin-brand);
+  border-radius: 6px;
+  background: #f4f0fb;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.take-banner p {
+  margin: 0 0 4px;
+}
+
+.take-banner p:last-child {
+  margin-bottom: 0;
+}
+
+.take-banner code {
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.take-banner a {
+  color: var(--signin-brand);
+}
+
+.take-banner-warn {
+  color: #8b0000;
+}
+
+.take-done {
+  max-width: 440px;
+}
